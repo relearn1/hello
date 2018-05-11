@@ -1,0 +1,13 @@
+- name: df Sample
+  hosts: all
+  tasks:
+ #   - name: Hello Message
+ #     debug:
+ #       msg: "Hello World!"
+    - name: disk
+      shell: df -TH
+      register: dfinfo
+
+    - name: debug
+      debug: var=dfinfo['stdout_lines']
+
